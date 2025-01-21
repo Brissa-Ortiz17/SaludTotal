@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp"
+tools:context=".CrearRecordatorio">
+
+<!-- Banner -->
+<TextView
+    android:id="@+id/tvTitulo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#9C27B0"
+    android:text="Mi control médico"
+    android:textColor="@android:color/white"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:padding="16dp"
+    android:gravity="center" />
+
+<TextView
+    android:id="@+id/tvBienvenido"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Bienvenido"
+    android:textSize="18sp"
+    android:padding="8dp"
+    android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario" />
+    <Spinner
+        android:id="@+id/spinnerUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doctor" />
+    <Spinner
+        android:id="@+id/spinnerDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Especialidad" />
+    <Spinner
+        android:id="@+id/spinnerEspecialidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha (YYYY-MM-DD)" />
+
+    <EditText
+        android:id="@+id/etHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora (HH:MM)" />
+
+    <EditText
+        android:id="@+id/etDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dirección" />
+
+    <EditText
+        android:id="@+id/etNota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota" />
+
+    <Button
+        android:id="@+id/btnHecho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hecho" />
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regresar" />
+
+</LinearLayout>

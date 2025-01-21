@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Banner superior con el nombre del usuario -->
+    <TextView
+        android:id="@+id/tvBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mi Control Médico"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/tvBienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido Usuario"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/etNombreMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Medicamento"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:minHeight="48dp"/>
+
+    <EditText
+        android:id="@+id/etDuracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Duración en dias"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:minHeight="48dp"/>
+
+    <EditText
+        android:id="@+id/etHoraInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora de Inicio (HH:mm)"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:minHeight="48dp"/>
+
+    <EditText
+        android:id="@+id/etFrecuencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Frecuencia en horas"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:minHeight="48dp"/>
+
+    <!-- Spinner para seleccionar el doctor -->
+
+    <!-- Spinner para seleccionar la especialidad -->
+
+    <EditText
+        android:id="@+id/etNota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota"
+        android:layout_marginBottom="20dp"
+        android:padding="12dp"
+        android:minHeight="48dp"/>
+
+    <Button
+        android:id="@+id/btnCrearRecordatorio"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Hecho"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="#3F51B5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Regresar"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="#3F51B5"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

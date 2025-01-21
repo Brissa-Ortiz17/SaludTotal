@@ -1,0 +1,6 @@
+id_doctor,nombre,apellido,telefono,email,id_especialidad
+1,Carlos,Lopez,1122334455,carlos.lopez@example.com,1
+2,Luis,Rodriguez,6677889900,luis.rodriguez@example.com,2
+3,Elena,Sanchez,2233445566,elena.sanchez@example.com,3
+4,Ricardo,Gonzalez,7788990011,ricardo.gonzalez@example.com,4
+5,Sofia,Ramirez,3344556677,sofia.ramirez@example.com,5

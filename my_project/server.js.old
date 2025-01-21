@@ -1,0 +1,174 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+const app = express();
+app.use(bodyParser.json());
+
+const db = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'password',
+    database: 'salud_movil',
+    port: 3306
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Error connecting to the database:', err);
+        return;
+    }
+    console.log('Connected to the database');
+});
+
+// Endpoint para autenticar al usuario
+app.post('/authenticate', (req, res) => {
+    const { usuario, contrasena } = req.body;
+    console.log(`Intento de autenticación para usuario: ${usuario}`); // Log para verificar los datos de entrada
+
+    const sql = 'SELECT id_usuario FROM Usuarios WHERE nombre = ? AND contraseña = ?';
+    db.query(sql, [usuario, contrasena], (err, results) => {
+        if (err) {
+            console.error('Error fetching user:', err);
+            res.status(500).send('Error fetching user');
+            return;
+        }
+        console.log('Resultados de la consulta:', results); // Log para verificar los resultados de la consulta
+        if (results.length > 0) {
+            res.json({ id_usuario: results[0].id_usuario });
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
+});
+
+// Endpoint para registrar un nuevo usuario
+app.post('/register', (req, res) => {
+    const { nombre, apellido, fecha_nacimiento, email, contrasena, telefono, direccion, usuario } = req.body;
+    console.log('Intento de registro para usuario:', usuario); // Log para verificar los datos de entrada
+
+    const sql = 'INSERT INTO Usuarios (nombre, apellido, fecha_nacimiento, email, contraseña, telefono, direccion, usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [nombre, apellido, fecha_nacimiento, email, contrasena, telefono, direccion, usuario], (err, result) => {
+        if (err) {
+            console.error('Error inserting user:', err);
+            res.status(500).send('Error inserting user');
+            return;
+        }
+        res.status(200).send('User registered successfully');
+    });
+});
+
+// Endpoint para obtener la lista de usuarios
+app.get('/usuarios', (req, res) => {
+    db.query('SELECT id_usuario, nombre FROM Usuarios', (err, results) => {
+        if (err) {
+            console.error('Error fetching usuarios:', err);
+            res.status(500).send('Error fetching usuarios');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+// Endpoint para obtener la lista de doctores
+app.get('/doctores', (req, res) => {
+    db.query('SELECT id_doctor, nombre FROM Doctores', (err, results) => {
+        if (err) {
+            console.error('Error fetching doctores:', err);
+            res.status(500).send('Error fetching doctores');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+// Endpoint para obtener la lista de especialidades
+app.get('/especialidades', (req, res) => {
+    db.query('SELECT id_especialidad, nombre_especialidad FROM Especialidades', (err, results) => {
+        if (err) {
+            console.error('Error fetching especialidades:', err);
+            res.status(500).send('Error fetching especialidades');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+// Endpoint para crear una cita
+app.post('/createAppointment', (req, res) => {
+    const { id_usuario, id_doctor, fecha_cita, hora_cita, id_especialidad, ubicacion, nota } = req.body;
+    console.log(`Creando cita para usuario: ${id_usuario}`); // Log para verificar los datos de entrada
+
+    const sql = 'INSERT INTO Citas (id_usuario, id_doctor, fecha_cita, hora_cita, id_especialidad, ubicacion, nota) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [id_usuario, id_doctor, fecha_cita, hora_cita, id_especialidad, ubicacion, nota], (err, result) => {
+        if (err) {
+            console.error('Error inserting appointment:', err);
+            res.status(500).send('Error inserting appointment');
+            return;
+        }
+        res.send('Appointment created successfully');
+    });
+});
+
+// Endpoint para consultar citas
+app.post('/consultarCitas', (req, res) => {
+    const filtro = req.body.filtro;
+    const id = req.body.id;
+    console.log(`Consultando citas por filtro: ${filtro}, ID: ${id}`); // Log para verificar los datos de entrada
+
+    let query = '';
+    switch (filtro) {
+        case 'usuario':
+            query = 'SELECT * FROM Citas WHERE id_usuario = ?';
+            break;
+        case 'doctor':
+            query = 'SELECT * FROM Citas WHERE id_doctor = ?';
+            break;
+        case 'especialidad':
+            query = 'SELECT * FROM Citas WHERE id_especialidad = ?';
+            break;
+        default:
+            res.status(400).send('Filtro no válido');
+            return;
+    }
+
+    db.query(query, [id], (err, results) => {
+        if (err) {
+            console.error('Error en la consulta:', err);
+            res.status(500).send('Error en la consulta');
+            return;
+        }
+        const citas = results.map(cita => ({
+            id: cita.id_cita,
+            id_usuario: cita.id_usuario,
+            id_doctor: cita.id_doctor,
+            fecha_cita: cita.fecha_cita,
+            hora_cita: cita.hora_cita,
+            id_especialidad: cita.id_especialidad,
+            ubicacion: cita.ubicacion,
+            nota: cita.nota
+        }));
+        res.json(citas);
+    });
+});
+
+// Endpoint para obtener citas por usuario
+app.get('/getCitasByUsuario', (req, res) => {
+    const idUsuario = req.query.id_usuario;
+    console.log(`Obteniendo citas para el usuario: ${idUsuario}`); // Log para verificar los datos de entrada
+
+    const sql = 'SELECT * FROM Citas WHERE id_usuario = ?';
+    db.query(sql, [idUsuario], (err, results) => {
+        if (err) {
+            console.error('Error al obtener citas:', err);
+            res.status(500).send('Error al obtener citas');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});

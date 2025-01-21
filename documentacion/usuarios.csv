@@ -1,0 +1,6 @@
+id_usuario,nombre,apellido,fecha_nacimiento,email,contraseña,tipo_usuario,telefono,direccion
+1,Juan,Perez,1990-01-01,juan.perez@example.com,password123,paciente,1234567890,"Calle Falsa 123, Ciudad A"
+2,Maria,Gomez,1985-05-15,maria.gomez@example.com,password456,paciente,0987654321,"Calle Real 456, Ciudad B"
+3,Carlos,Lopez,1978-09-30,carlos.lopez@example.com,password789,medico,1122334455,"Avenida Siempre Viva 742, Ciudad C"
+4,Ana,Martinez,1995-07-20,ana.martinez@example.com,password101,paciente,5566778899,"Calle Principal 789, Ciudad D"
+5,Luis,Rodriguez,1982-11-11,luis.rodriguez@example.com,password202,medico,6677889900,"Boulevard Central 101, Ciudad E"

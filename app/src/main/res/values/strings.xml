@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Salud_Total_v2</string>
+    <string-array name="filtro_tipo_array">
+        <item>Seleccionar Filtro</item>
+        <item>Doctor</item>
+        <item>Especialidad</item>
+    </string-array>
+
+    <string-array name="tipo_usuario_array">
+        <item>Paciente</item>
+        <item>Doctor</item>
+    </string-array>
+    <string-array name="filtro_variable_array">
+            <item>Doctor</item>
+            <item>Especialidad</item>
+    </string-array>
+    <string-array name="filtros_array">
+        <item>Doctor</item>
+        <item>Especialidad</item>
+    </string-array>
+
+
+</resources>
