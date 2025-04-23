@@ -65,10 +65,18 @@ public class CrearCita extends AppCompatActivity {
         btnHecho = findViewById(R.id.btnHecho);
         btnRegresar = findViewById(R.id.btnRegresar);
 
-        // Load data for spinners
-        loadSpinnerData("http://10.0.2.2:3000/usuarios", spinnerUsuario, "id_usuario", "nombre_completo");
-        loadSpinnerData("http://10.0.2.2:3000/doctores", spinnerDoctor, "id_doctor", "nombre");
-        loadSpinnerData("http://10.0.2.2:3000/especialidades", spinnerEspecialidad, "id_especialidad", "nombre_especialidad");
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Cargar datos para los spinners
+        loadSpinnerData(selectedIp + "/usuarios", spinnerUsuario, "id_usuario", "nombre_completo");
+        loadSpinnerData(selectedIp + "/doctores", spinnerDoctor, "id_doctor", "nombre");
+        loadSpinnerData(selectedIp + "/especialidades", spinnerEspecialidad, "id_especialidad", "nombre_especialidad");
+
 
         btnHecho.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,11 +223,22 @@ public class CrearCita extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+        String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir el cuerpo de la solicitud
         RequestBody body = RequestBody.create(citaData.toString(), JSON);
+
+        // Construir la solicitud
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/createAppointment")
+                .url(selectedIp + "/createAppointment")
                 .post(body)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

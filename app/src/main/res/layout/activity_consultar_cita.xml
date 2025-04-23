@@ -10,13 +10,14 @@
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        android:text="Mi control médico"
+        android:background="#0077C2"
+        android:text="Control médico"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:padding="16dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:elevation="4dp" />
 
     <!-- Mensaje de bienvenida -->
     <TextView
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:padding="16dp"
         android:gravity="center" />
 
@@ -59,24 +61,36 @@
         android:layout_marginTop="24dp" />
 
     <!-- Botones -->
+
     <Button
         android:id="@+id/btnConsultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:height="55dp"
+        android:backgroundTint="#0077C2"
         android:text="Consultar"
-        android:layout_marginTop="16dp" />
+        android:textColor="@android:color/white" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCitas"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCitas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btnRegresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:height="55dp"
+        android:backgroundTint="#01579B"
         android:text="Regresar"
-        android:layout_marginTop="16dp" />
+        android:textColor="@android:color/white" />
+
 </LinearLayout>

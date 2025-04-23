@@ -4,96 +4,119 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="top|center_horizontal"
+    android:background="@android:color/white">
 
     <!-- Banner superior con el nombre del usuario -->
+
     <TextView
         android:id="@+id/tvBanner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mi Control Médico"
+        android:background="#0077C2"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Control Médico"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bienvenido Usuario"
-        android:textSize="18sp"
-        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="#212121"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 
+    <!-- EditText para Nombre del Medicamento -->
     <EditText
         android:id="@+id/etNombreMedicamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del Medicamento"
-        android:layout_marginBottom="10dp"
+        android:hint="¿Cual es el nombre de tu medicamento?"
+        android:layout_marginBottom="16dp"
         android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
         android:minHeight="48dp"/>
 
+    <!-- EditText para Duración -->
     <EditText
         android:id="@+id/etDuracion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Duración en dias"
-        android:layout_marginBottom="10dp"
+        android:hint="¿Cual es la duracion en dias?"
+        android:layout_marginBottom="16dp"
         android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
         android:minHeight="48dp"/>
 
+    <!-- EditText para Hora de Inicio -->
     <EditText
         android:id="@+id/etHoraInicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hora de Inicio (HH:mm)"
-        android:layout_marginBottom="10dp"
+        android:hint="Hora de inicio (HH:MM)"
+        android:layout_marginBottom="16dp"
         android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
         android:minHeight="48dp"/>
 
+    <!-- EditText para Frecuencia -->
     <EditText
         android:id="@+id/etFrecuencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Frecuencia en horas"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
         android:minHeight="48dp"/>
 
-    <!-- Spinner para seleccionar el doctor -->
-
-    <!-- Spinner para seleccionar la especialidad -->
-
+    <!-- EditText para Nota -->
     <EditText
         android:id="@+id/etNota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nota"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
         android:minHeight="48dp"/>
 
+    <!-- Botón Hecho con color azul y bordes redondeados -->
     <Button
         android:id="@+id/btnCrearRecordatorio"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:text="Hecho"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="#3F51B5"
+        android:backgroundTint="#0288D1"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp" />
 
+    <!-- Botón Regresar con color azul y bordes redondeados -->
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:text="Regresar"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="#3F51B5"
-        android:layout_gravity="center"/>
+        android:backgroundTint="#01579B"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="135dp" />
 
 </LinearLayout>

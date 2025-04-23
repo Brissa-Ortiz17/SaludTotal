@@ -3,44 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@color/white">
+
+    <!-- LOGO DE LA APP -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/logo"
+        android:contentDescription="Logo de Salud Total"
+        android:layout_marginBottom="24dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salud Movil"
-        android:textSize="24sp"
+        android:text="Salud Total"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"/>
+        android:textColor="@color/black"
+        android:layout_marginBottom="36dp"/>
 
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Usuario"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="60dp"
+        android:hint="Ingresar usuario"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+    android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/etContrasena"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
+        android:layout_height="60dp"
+        android:hint="Ingresar contraseña"
         android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+    android:layout_marginBottom="24dp"/>
+
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Iniciar sesión"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#01579B"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresar"
-        android:layout_marginBottom="16dp"/>
+        android:text="¿No tienes una cuenta?"
+        android:textSize="16sp"
+        android:textColor="#01579B"
+        android:layout_marginBottom="14dp"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/btnRegistro"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar"/>
+        android:layout_height="55dp"
+        android:text="Regístrate"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#01579B"/>
 
 </LinearLayout>

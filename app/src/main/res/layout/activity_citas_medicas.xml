@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:gravity="top|center_horizontal">
 
     <!-- Título -->
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        android:text="Mi control médico"
+        android:background="#0077C2"
+        android:text="Control médico"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -23,7 +25,7 @@
         android:id="@+id/tvBienvenido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
+        android:background="#0077C2"
         android:text=""
         android:textColor="@android:color/white"
         android:textSize="18sp"
@@ -33,35 +35,35 @@
     <!-- Botones existentes -->
     <Button
         android:id="@+id/btnCrearCita"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#0077C2"
         android:text="Crear Cita"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@android:color/holo_blue_light"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnConsultarCita"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#0077C2"
         android:text="Consultar Citas"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@android:color/holo_blue_light"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="435dp"
+        android:backgroundTint="#01579B"
         android:text="Regresar"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@android:color/holo_blue_light"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -73,8 +73,16 @@ public class ConsultarCita extends AppCompatActivity {
         citasAdapter = new CitasAdapter(new ArrayList<>());
         recyclerViewCitas.setAdapter(citasAdapter);
 
-        // Cargar datos del spinner de usuarios
-        loadSpinnerData("http://10.0.2.2:3000/usuarios", spinnerUsuario, "id_usuario", "nombre_completo");
+        // Definir las dos direcciones IP
+        String url1 = "http://192.168.100.144:3000/usuarios";
+        String url2 = "http://192.168.59.26:3000/usuarios"; // Nueva IP
+
+        // Seleccionar la IP activa
+        String selectedUrl = url1; // Cambia a url2 si deseas usar la nueva IP
+
+        // Cargar los datos en el spinner
+        loadSpinnerData(selectedUrl, spinnerUsuario, "id_usuario", "nombre_completo");
+
 
         // Configurar el Spinner de tipo de filtro
         ArrayAdapter<CharSequence> adapterFiltroTipo = ArrayAdapter.createFromResource(this,
@@ -86,14 +94,22 @@ public class ConsultarCita extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 String selected = parentView.getItemAtPosition(position).toString();
+
+                // Definir las dos direcciones IP
+                String ip1 = "http://192.168.100.144:3000";
+                String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+                // Seleccionar la IP activa
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
                 switch (selected) {
                     case "Doctor":
                         selectedFilter = "doctor";
-                        loadSpinnerData("http://10.0.2.2:3000/doctores", spinnerFiltroDoctorEspecialidad, "id_doctor", "nombre");
+                        loadSpinnerData(selectedIp + "/doctores", spinnerFiltroDoctorEspecialidad, "id_doctor", "nombre");
                         break;
                     case "Especialidad":
                         selectedFilter = "especialidad";
-                        loadSpinnerData("http://10.0.2.2:3000/especialidades", spinnerFiltroDoctorEspecialidad, "id_especialidad", "nombre_especialidad");
+                        loadSpinnerData(selectedIp + "/especialidades", spinnerFiltroDoctorEspecialidad, "id_especialidad", "nombre_especialidad");
                         break;
                     default:
                         selectedFilter = "";
@@ -101,6 +117,7 @@ public class ConsultarCita extends AppCompatActivity {
                         break;
                 }
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -228,11 +245,22 @@ public class ConsultarCita extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        RequestBody body = RequestBody.create(consultaData.toString(), JSON);
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir el cuerpo de la solicitud
+                RequestBody body = RequestBody.create(consultaData.toString(), JSON);
+
+        // Construir la solicitud
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/consultarCitas")
+                .url(selectedIp + "/consultarCitas")
                 .post(body)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

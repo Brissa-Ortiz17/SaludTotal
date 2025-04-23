@@ -91,9 +91,14 @@ public class CalendarioActivity extends AppCompatActivity {
     }
 
     private void loadDoctorNames() {
-        String url = "http://10.0.2.2:3000/doctores";
+        String url1 = "http://192.168.100.144:3000/doctores";
+        String url2 = "http://192.168.59.26:3000/doctores"; // Segunda IP
+
+        // Seleccionar la IP activa (modifica según la que necesites usar)
+        String selectedUrl = url1; // Cambia a url2 si quieres usar la otra IP
+
         Request request = new Request.Builder()
-                .url(url)
+                .url(selectedUrl)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -140,9 +145,14 @@ public class CalendarioActivity extends AppCompatActivity {
     }
 
     private void loadSpecialtyNames() {
-        String url = "http://10.0.2.2:3000/especialidades";
+        String url1 = "http://192.168.100.144:3000/especialidades";
+        String url2 = "http://192.168.59.26:3000/especialidades"; // Segunda IP
+
+        // Seleccionar la IP activa (modifica según la que necesites usar)
+        String selectedUrl = url1; // Cambia a url2 si quieres usar la otra IP
+
         Request request = new Request.Builder()
-                .url(url)
+                .url(selectedUrl)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -189,9 +199,12 @@ public class CalendarioActivity extends AppCompatActivity {
     }
 
     private void loadCitas() {
-        String url = "http://10.0.2.2:3000/getCitasByUsuario?id_usuario=" + idUsuario;
+        String url1 = "http://192.168.100.144:3000/getCitasByUsuario?id_usuario=" + idUsuario;
+        String url2 = "http://192.168.59.26:3000/getCitasByUsuario?id_usuario=" + idUsuario;
+
+        String selectedUrl = url1; // Cambia a url2 si quieres usar la otra IP
         Request request = new Request.Builder()
-                .url(url)
+                .url(selectedUrl)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -234,11 +247,14 @@ public class CalendarioActivity extends AppCompatActivity {
 
     private void loadCitaInfo(CalendarDay date) {
         String formattedDate = String.format("%04d-%02d-%02d", date.getYear(), date.getMonth() + 1, date.getDay());
-        String url = "http://10.0.2.2:3000/getCitaByDate?id_usuario=" + idUsuario +
-                "&fecha_cita=" + formattedDate;
+        String url1 = "http://192.168.100.144:3000/getCitaByDate?id_usuario=" + idUsuario + "&fecha_cita=" + formattedDate;
+        String url2 = "http://192.168.59.26:3000/getCitaByDate?id_usuario=" + idUsuario + "&fecha_cita=" + formattedDate; // Nueva IP
+
+    // Seleccionar la IP activa
+        String selectedUrl = url1; // Cambia a url2 si deseas usar la nueva IP
 
         Request request = new Request.Builder()
-                .url(url)
+                .url(selectedUrl)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {

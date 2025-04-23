@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'password', // Reemplaza 'password' con tu contraseña de MySQL
+    password: '', // Reemplaza 'password' con tu contraseña de MySQL
     database: 'salud_movil',
-    port: 3306
+    port: 3305
 });
 
 db.connect((err) => {
@@ -232,8 +232,8 @@ app.post('/consultarRecordatorios', (req, res) => {
                     nota, 
                     DATE(fecha_inicio) as fecha_inicio, 
                     DATE(fecha_fin) as fecha_fin 
-                 FROM Recordatorios 
-                 WHERE id_usuario = ? AND fecha_fin >= CURDATE()`;
+                FROM Recordatorios 
+                WHERE id_usuario = ? AND fecha_fin >= CURDATE()`;
     const params = [id_usuario];
 
     if (filtro && id_filtro !== undefined) {
@@ -274,8 +274,8 @@ app.post('/consultarRecordatoriosAnteriores', (req, res) => {
                     nota, 
                     DATE(fecha_inicio) as fecha_inicio, 
                     DATE(fecha_fin) as fecha_fin 
-                 FROM Recordatorios 
-                 WHERE id_usuario = ? AND fecha_fin < CURDATE()`;
+                FROM Recordatorios 
+                WHERE id_usuario = ? AND fecha_fin < CURDATE()`;
 
     db.query(query, [id_usuario], (err, results) => {
         if (err) {
@@ -364,10 +364,10 @@ app.get('/getProximaCita', (req, res) => {
     const id_usuario = req.query.id_usuario;
     
     const sql = `SELECT * FROM Citas 
-                 WHERE id_usuario = ? 
-                 AND fecha_cita >= CURDATE() 
-                 ORDER BY fecha_cita ASC, hora_cita ASC 
-                 LIMIT 1`;
+                WHERE id_usuario = ? 
+                AND fecha_cita >= CURDATE() 
+                ORDER BY fecha_cita ASC, hora_cita ASC 
+                LIMIT 1`;
 
     db.query(sql, [id_usuario], (err, results) => {
         if (err) {
@@ -384,8 +384,11 @@ app.get('/getProximaCita', (req, res) => {
     });
 });
 
-
 const port = 3000;
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+const host = '192.168.100.144'; // Usa la IP de mi máquina en lugar de '0.0.0.0'
+
+// const host = '192.168.59.26';  // IP datos moviles
+
+app.listen(port, host, () => {
+    console.log(`Server running on http://${host}:${port}`);
 });

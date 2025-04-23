@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -90,6 +92,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent13);
         });
 
+        Button btnLogout = findViewById(R.id.btn_logout); // Usa el mismo ID que en el XML
+            btnLogout.setOnClickListener(view -> {
+                Intent logoutIntent = new Intent(MainActivity.this, LoginActivity.class);
+                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(logoutIntent);
+                finish();
+        });
+
+
+
         // Cargar la cita más próxima
         cargarProximaCita();
     }
@@ -98,12 +110,21 @@ public class MainActivity extends AppCompatActivity {
         return idUsuario != -1;
     }
 
+    // Definir las dos direcciones IP
+    String ip1 = "http://192.168.100.144:3000";
+    String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+    // Seleccionar la IP activa (esto se puede cambiar dinámicamente según sea necesario)
+    String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+    // Cargar la URL con la IP seleccionada
     private void cargarProximaCita() {
-        String url = "http://10.0.2.2:3000/getProximaCita?id_usuario=" + idUsuario;
+        String url = selectedIp + "/getProximaCita?id_usuario=" + idUsuario;
 
         Request request = new Request.Builder()
                 .url(url)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

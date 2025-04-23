@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:padding="16dp"
     tools:context=".CalendarioActivity">
 
@@ -13,51 +14,70 @@
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
+        android:background="#0077C2"
         android:text="Mi control médico"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:padding="16dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:elevation="4dp" />
 
     <TextView
         android:id="@+id/tvBienvenido"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bienvenido"
         android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         android:padding="8dp"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="center" />
 
-    <!-- Calendario -->
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        android:id="@+id/calendarView"
+    <!-- Tarjeta para el calendario -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:mcv_showOtherDates="all"
-        app:mcv_tileHeight="50dp"
-        app:mcv_tileWidth="50dp"
-        app:mcv_selectionColor="#FF4081" />
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:background="#E3F2FD">
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mcv_showOtherDates="all"
+            app:mcv_tileHeight="50dp"
+            app:mcv_tileWidth="50dp"
+            app:mcv_selectionColor="#0077C2"
+            app:mcv_arrowColor="#0077C2"
+            app:mcv_weekDayTextAppearance="@android:style/TextAppearance.Medium" />
+    </androidx.cardview.widget.CardView>
 
     <!-- Información de la cita -->
     <TextView
         android:id="@+id/tvCitaInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Información de la cita"
         android:textSize="16sp"
+        android:textColor="#333333"
         android:padding="8dp"
-        android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:layout_marginTop="16dp" />
 
     <!-- Botón Regresar -->
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:text="Regresar"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
-
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:backgroundTint="#0077C2"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
 </LinearLayout>

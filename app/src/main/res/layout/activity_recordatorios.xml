@@ -12,8 +12,8 @@
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        android:text="Mi control médico"
+        android:background="#0288D1"
+        android:text="Control médico"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -39,34 +39,36 @@
 
     <Button
         android:id="@+id/btnCrearRecordatorio"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:text="Crear Recordatorio"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="#3F51B5"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="0dp"
+        android:text="Crear Recordatorio"
+        android:backgroundTint="#0288D1"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnConsultarRecordatorio"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0288D1"
         android:text="Consultar Recordatorio"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="#3F51B5"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"/>
+        android:textStyle="bold" />
+
 
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#01579B"
         android:text="Regresar"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="#3F51B5"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="375dp"/>
 
 </LinearLayout>

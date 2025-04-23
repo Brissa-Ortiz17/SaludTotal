@@ -91,8 +91,15 @@ public class ConsultarRecordatorio extends AppCompatActivity {
     }
 
     private void cargarUsuarios() {
-        // Cargar los usuarios desde el servidor
-        String url = "http://10.0.2.2:3000/usuarios"; // Endpoint correcto
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+        String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir la solicitud
+        String url = selectedIp + "/usuarios";
         Request request = new Request.Builder().url(url).build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -162,11 +169,22 @@ public class ConsultarRecordatorio extends AppCompatActivity {
             return;
         }
 
-        RequestBody body = RequestBody.create(postData.toString(), okhttp3.MediaType.parse("application/json; charset=utf-8"));
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir el cuerpo de la solicitud
+                RequestBody body = RequestBody.create(postData.toString(), okhttp3.MediaType.parse("application/json; charset=utf-8"));
+
+        // Construir la solicitud
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/consultarRecordatorios")
+                .url(selectedIp + "/consultarRecordatorios")
                 .post(body)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -231,11 +249,22 @@ public class ConsultarRecordatorio extends AppCompatActivity {
             return;
         }
 
-        RequestBody body = RequestBody.create(postData.toString(), okhttp3.MediaType.parse("application/json; charset=utf-8"));
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir el cuerpo de la solicitud
+                RequestBody body = RequestBody.create(postData.toString(), okhttp3.MediaType.parse("application/json; charset=utf-8"));
+
+        // Construir la solicitud
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/consultarRecordatoriosAnteriores")
+                .url(selectedIp + "/consultarRecordatoriosAnteriores")
                 .post(body)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

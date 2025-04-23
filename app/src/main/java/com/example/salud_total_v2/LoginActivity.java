@@ -27,7 +27,17 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsuario, etContrasena;
     private Button btnIngresar, btnRegistrar;
     private OkHttpClient client = new OkHttpClient();
-    private static final String LOGIN_URL = "http://10.0.2.2:3000/authenticate";
+
+    // Definir las dos direcciones IP
+    private static final String IP1 = "http://192.168.100.144:3000";
+    private static final String IP2 = "http://192.168.59.26:3000"; // Nueva IP
+
+    // Variable para seleccionar la IP activa (en algún lugar de tu código, puedes cambiar esto)
+    private static String selectedIp = IP1; // Cambia a IP2 si deseas usar la nueva IP
+
+    // Usar la IP seleccionada en el LOGIN_URL
+    private static final String LOGIN_URL = selectedIp + "/authenticate";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

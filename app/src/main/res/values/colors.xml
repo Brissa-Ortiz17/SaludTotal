@@ -2,12 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="purple_200">#BB86FC</color>
-    <color name="purple_500">#6200EE</color>
-    <color name="purple_700">#3700B3</color>
+    <color name="purple_200">#2196F3</color>
+    <color name="purple_500">#3F51B5</color>
+    <color name="purple_700">#3F51B5</color>
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
     <color name="red">#FF0000</color>
-        <color name="blue">#0000FF</color> <!-- Azul -->
-    <color name="red_blue">#800080</color> <!-- Morado (mezcla de rojo y azul) -->
+    <color name="blue">#0000FF</color> <!-- Azul -->
+    <color name="red_blue">#3F51B5</color> <!-- Morado (mezcla de rojo y azul) -->
+    <color name="button_color">#3A95DD</color>
+
     </resources>

@@ -112,11 +112,20 @@ public class RegistroActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        RequestBody body = RequestBody.create(userData.toString(), JSON);
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa (esto se puede cambiar dinámicamente según sea necesario)
+                String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Crear el cuerpo de la solicitud y la solicitud
+        RequestBody body = RequestBody.create(userData.toString(), MediaType.parse("application/json; charset=utf-8"));
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/register")
+                .url(selectedIp + "/register") // Usar la IP seleccionada en la URL
                 .post(body)
                 .build();
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

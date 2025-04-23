@@ -4,58 +4,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="15dp"
+    android:gravity="center"
+    android:background="@android:color/white"
     tools:context=".RegistroActivity">
 
+    <!-- Mensaje de Bienvenida -->
+    <TextView
+        android:id="@+id/tvBienvenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido a Salud Total!"
+        android:textSize="25sp"
+        android:textColor="#01579B"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"
+        android:textStyle="bold"/>
+
+    <!-- EditText para Nombre -->
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre" />
+        android:hint="Nombre"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Apellido -->
     <EditText
         android:id="@+id/etApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellido" />
+        android:hint="Apellido"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Fecha de Nacimiento -->
     <EditText
         android:id="@+id/etFechaNacimiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha de Nacimiento (YYYY-MM-DD)" />
+        android:hint="Fecha de Nacimiento (YYYY-MM-DD)"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Email -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="Email"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Contraseña -->
     <EditText
         android:id="@+id/etContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Teléfono -->
     <EditText
         android:id="@+id/etTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Teléfono" />
+        android:hint="Teléfono"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Dirección -->
     <EditText
         android:id="@+id/etDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dirección" />
+        android:hint="Dirección"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- EditText para Nombre de Usuario -->
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre de Usuario" />
+        android:hint="Nombre de Usuario"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/rounded_background"
+        android:minHeight="48dp"/>
 
+    <!-- Texto antes del Spinner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Con qué perfil deseas ingresar?"
+        android:textSize="18sp"
+        android:textColor="#01579B"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Spinner para seleccionar tipo de usuario -->
     <Spinner
         android:id="@+id/spinnerTipoUsuario"
         android:layout_width="match_parent"
@@ -65,15 +138,24 @@
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Registrar" />
+        android:layout_height="55dp"
+        android:text="Registrar"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:backgroundTint="#0288D1"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="0dp" /> <!-- Se eliminó el margen inferior -->
 
+    <!-- Botón Regresar a Login -->
     <Button
         android:id="@+id/btnRegresarLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Regresar a Login" />
+        android:layout_height="55dp"
+        android:text="Regresar"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:backgroundTint="#01579B"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp" />
 
 </LinearLayout>

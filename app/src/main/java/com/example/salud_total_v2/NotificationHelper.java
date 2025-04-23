@@ -78,14 +78,27 @@ public class NotificationHelper {
 
 
     public static void programarNotificaciones(Context context, int idUsuario) {
+        // Crear el canal de notificación
         crearCanalDeNotificacion(context);
+
+        // Definir las dos direcciones IP
+        String ip1 = "http://192.168.100.144:3000";
+        String ip2 = "http://192.168.59.26:3000"; // Nueva IP
+
+        // Seleccionar la IP activa (esto se puede cambiar dinámicamente según sea necesario)
+        String selectedIp = ip1; // Cambia a ip2 si deseas usar la nueva IP
+
+        // Construir la URL usando la IP seleccionada
+        String url = selectedIp + "/getNotificacionesByUsuario?id_usuario=" + idUsuario;
+
+        // Crear cliente y solicitud
         OkHttpClient client = new OkHttpClient();
-
-        String url = "http://10.0.2.2:3000/getNotificacionesByUsuario?id_usuario=" + idUsuario;
-
         Request request = new Request.Builder()
                 .url(url)
                 .build();
+
+        // Aquí puedes agregar el código para ejecutar la solicitud, por ejemplo, con un `client.newCall(request).enqueue(...)`
+
 
         client.newCall(request).enqueue(new Callback() {
             @Override

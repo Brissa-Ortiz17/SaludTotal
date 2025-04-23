@@ -10,13 +10,14 @@
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        android:text="Mi control médico"
+        android:background="#0077C2"
+        android:text="Control médico"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:padding="16dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:elevation="4dp"/>
 
     <!-- Mensaje de Bienvenida -->
     <TextView
@@ -27,7 +28,8 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:padding="8dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:elevation="4dp"/>
 
     <!-- Filtro por Usuario -->
     <TextView
@@ -35,51 +37,141 @@
         android:layout_height="wrap_content"
         android:text="Usuario"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
         android:padding="8dp" />
 
     <Spinner
         android:id="@+id/spinnerUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:padding="8dp" />
-
-    <!-- Filtros -->
-    <!-- Aquí podrías agregar un Spinner para los filtros, si es necesario -->
 
     <!-- Botón Buscar -->
     <Button
         android:id="@+id/btnBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0288D1"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Buscar"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
-    <!-- Botón Ver Anteriores -->
     <Button
         android:id="@+id/btnVerAnteriores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0288D1"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Ver Anteriores"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <!-- CardView para mostrar resultados -->
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:layout_margin="16dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="8dp">
+
+            <!-- Campanita Icono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_bell"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Campanita"/>
+
+                <TextView
+                    android:id="@+id/tvResultados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    android:gravity="start"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"/>  <!-- Reducido de 12dp a 4dp -->
+            </LinearLayout>
+
+            <!-- Sección de confirmación de toma del medicamento -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Tomaste el medicamento?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+
+            <RadioGroup
+                android:id="@+id/rgMedicamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="3dp"
+                android:padding="2dp"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbSi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sí"
+                    android:textSize="14sp"
+                    android:buttonTint="#003366"/> <!-- Azul marino -->
+
+                <RadioButton
+                    android:id="@+id/rbNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textSize="14sp"
+                    android:layout_marginStart="16dp"
+                    android:buttonTint="#003366"/> <!-- Azul marino -->
+            </RadioGroup>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <!-- Botón Regresar -->
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Regresar"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
-
-    <!-- Resultados de la búsqueda -->
-    <TextView
-        android:id="@+id/tvResultados"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:padding="8dp"
-        android:layout_marginTop="16dp" />
+        android:layout_height="55dp"
+        android:layout_marginTop="105dp"
+        android:backgroundTint="#01579B"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:text="Regresar"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
 </LinearLayout>
